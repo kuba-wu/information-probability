@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"/>
+<html>
+<head>
+    <title>I-P</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- external JavaScript -->
+    <!-- jQ -->
+    <script type="text/javascript" src="webjars/jquery/2.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="webjars/jquery-validation/1.11.1/jquery.validate.js"></script>
+    <!-- KO -->
+    <script type="text/javascript" src="webjars/knockout/3.2.0/knockout.js"></script>
+
+    <!-- Bootstrap -->
+    <script type='text/javascript' src='webjars/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+    <!-- AmCharts -->
+    <script src='webjars/amcharts/3.4.7/amcharts.js' type='text/javascript'></script>
+    <script src='webjars/amcharts/3.4.7/serial.js' type='text/javascript'></script>
+    <script src="webjars/amcharts/3.4.7/exporting/rgbcolor.js" type="text/javascript"></script>
+    <script src="webjars/amcharts/3.4.7/exporting/canvg.js" type="text/javascript"></script>
+    <script src="webjars/amcharts/3.4.7/exporting/filesaver.js" type="text/javascript"></script>
+
+    <!-- views -->
+    <script type="text/javascript" src="js/ip-component-chart.js"></script>
+    
+    <!-- styles -->
+    <link rel='stylesheet' href='webjars/bootstrap/3.3.1/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='css/ip.css'/>
+</head>
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href='#'>Information Probability (IP)</a>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- ERROR / MESSAGE -->
+        <div id='mainErrorAlert' class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" onclick="ChartModel.clearErrorAlert()" aria-hidden="true">&times;</button>
+            <div id='mainErrorAlertText'></div>
+        </div> 
+    </div>
+    <!-- MAIN VIEW-->
+    <div id='mainContainer' class='container body'>
+        <!-- repeats - dependent view -->
+        <legend>
+            <span>Target probability - number of repetitions (elementary probability - always 0.05)</span>
+        </legend>
+        <div class="row">
+	        <form class="navbar-form navbar-right" action="#" role="form">
+		        <div class="input-group">
+		            <span id="time-label" class="input-group-addon">Number of repetitions (k): </span>
+		            <input type="number" class="form-control" value="200" id="numberOfRepetitionsInput" min="1" step="100">
+		         	<span class="input-group-btn">
+		                <button class="btn btn-primary" onclick="ChartModel.addTargetProbabilityOfElementaryProbability(); return false;">Add chart</button>
+		            </span>
+		        </div>
+	        </form>
+        </div>
+        <div class="row">
+	        <div class='panel-body main'>
+	            <div id="outer" class="chart-archive alert alert-dismissable alert-success">
+	                <div class="chart-container container">
+	                    <div class="cold-md-12 chart" id="inner">
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        <!-- elementary probability - dependent view -->
+        <legend>
+            <span>Target probability - elementary probability (number of repetitions - always 1000)</span>
+        </legend>
+        <div class="row">
+	        <form class="navbar-form navbar-right" action="#" role="form">
+		        <div class="input-group">
+		            <span id="time-label" class="input-group-addon">Elementary probability (p): </span>
+		            <input type="number" class="form-control" value="0.009" id="elementaryProbabilityInput" max="1" min="0" step="0.01">
+		         	<span class="input-group-btn">
+		                <button class="btn btn-primary" onclick="ChartModel.addTargetProbabilityOfNumberOfRepetitions(); return false;">Add chart</button>
+		            </span>
+		        </div>
+	        </form>
+	    </div>
+	    <div class="row">
+	        <div class='panel-body main'>
+	            <div id="outer2" class="chart-archive alert alert-dismissable alert-success">
+	                <div class="chart-container container">
+	                    <div class="cold-md-12 chart" id="inner2">
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+        <hr />
+        <footer>
+        <p>&copy; Jakub Wach 2015-2017</p>
+        </footer>
+    </div>
+</body>
+</html>

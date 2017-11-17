@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+
+/* GENERAL */
+body {
+	padding-top: 70px;
+	padding-bottom: 20px;
+}
+
+hr {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+/* MAIN */
+div.body {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+div.main {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+}
+
+div.chart {
+	background-color: white;
+	height: 362px;
+}
+
+div.chart-archive {
+	padding : 15px 0px 15px 0px;
+}
+
+div.chart-container {
+	padding : 0px;
+}
